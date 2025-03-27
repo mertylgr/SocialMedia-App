@@ -35,8 +35,8 @@ class PostService extends Service {
       "username": user!.username,
       "ownerId": firebaseAuth.currentUser!.uid,
       "mediaUrl": link,
-      "description": description ?? "",
-      "location": location ?? "Wooble",
+      "description": description,
+      "location": location,
       "timestamp": Timestamp.now(),
     }).catchError((e) {
       print(e);

@@ -38,7 +38,7 @@ class _FeedsState extends State<Feeds> with AutomaticKeepAliveClientMixin{
 
   @override
   Widget build(BuildContext context) {
-    print('>>>');
+    super.build(context);
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
@@ -90,12 +90,26 @@ class _FeedsState extends State<Feeds> with AutomaticKeepAliveClientMixin{
                   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.hasData) {
                       var snap = snapshot.data;
-                      List docs = snap!.docs;
+                      if (snap == null) {
+                        return Center(
+                          child: Text(
+                            'No Feeds',
+                            style: TextStyle(
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        );
+                      }
+                      List docs = snap.docs;
                       return ListView.builder(
                         controller: scrollController,
                         itemCount: docs.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
+                          if (docs[index].data() == null) {
+                            return Container();
+                          }
                           PostModel posts =
                               PostModel.fromJson(docs[index].data());
                           return Padding(

@@ -205,7 +205,7 @@ class _CommentsState extends State<Comments> {
                           if (snapshot.hasData) {
                             QuerySnapshot snap = snapshot.data!;
                             List<DocumentSnapshot> docs = snap.docs;
-                            return buildLikesCount(context, docs.length ?? 0);
+                            return buildLikesCount(context, docs.length);
                           } else {
                             return buildLikesCount(context, 0);
                           }

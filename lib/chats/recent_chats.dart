@@ -24,7 +24,7 @@ class Chats extends StatelessWidget {
         title: Text("Chats"),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: userChatsStream('${viewModel.user!.uid ?? ""}'),
+        stream: userChatsStream('${viewModel.user!.uid}'),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List chatList = snapshot.data!.docs;
@@ -44,7 +44,7 @@ class Chats extends StatelessWidget {
                         List users = chatListSnapshot.get('users');
                         // remove the current user's id from the Users
                         // list so we can get the second user's id
-                        users.remove('${viewModel.user!.uid ?? ""}');
+                        users.remove('${viewModel.user!.uid}');
                         String recipient = users[0];
                         return ChatItem(
                           userId: recipient,
@@ -53,7 +53,7 @@ class Chats extends StatelessWidget {
                           time: message.time!,
                           chatId: chatListSnapshot.id,
                           type: message.type!,
-                          currentUserId: viewModel.user!.uid ?? "",
+                          currentUserId: viewModel.user!.uid,
                         );
                       } else {
                         return SizedBox();

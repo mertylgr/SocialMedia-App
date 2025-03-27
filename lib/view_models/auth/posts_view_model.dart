@@ -52,6 +52,7 @@ class PostsViewModel extends ChangeNotifier {
   }
 
   setPost(PostModel post) {
+    // ignore: unnecessary_null_comparison
     if (post != null) {
       description = post.description;
       imgLink = post.mediaUrl;
