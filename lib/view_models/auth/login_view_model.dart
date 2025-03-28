@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media_app/screens/mainscreen.dart';
 import 'package:social_media_app/services/auth_service.dart';

@@ -47,23 +47,3 @@ class Status {
     );
   }
 }
-
-// class ViewDetails {
-//   List<String>? ids;
-//   String? url;
-//   String? description;
-//
-//   ViewDetails({this.ids, this.url, this.description});
-//
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'ids': ids,
-//     };
-//   }
-//
-//   factory ViewDetails.fromMap(Map<String, dynamic> map) {
-//     return ViewDetails(
-//       ids: List<String>.from(map['id']),
-//     );
-//   }
-// }
